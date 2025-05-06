@@ -120,6 +120,7 @@ To learn more about React Native, take a look at the following resources:
 - 路径gradle/wrapper/gradle-wrapper.properties中的distributedUrl切换完本地下载好的gradle.
 - 在项目目录android/local.properties文件，添加如下内容：sdk.dir=E:/android-studio/SDK，以声明环境变量中的ANDROID_HOME的值
 -
+
 在项目目录android/build.properties中修改buildToolsVersion、compileSdkVersion、minSdkVersion（最小24）、targetSdkVersion为相应的值；同时为repositories添加
 阿里云镜像
 
@@ -231,6 +232,62 @@ To learn more about React Native, take a look at the following resources:
 - 然后，注意查看自己项目是否有 index.android.js这个文件，如果有回车执行命令即可，否则会会报错，
   找不到这个index.android.js文件；把index.android.js改为index.js
 - 在项目中执行npm run android 或者npx react-native run-android，打包、安装apk应用到真机或者模拟器
+
+# 五、RN项目中构建APP应用程序
+
+## 5.1 路由与导航
+
+### 5.1.1 简介
+
+- RN中使用路由，需要使用React-Navigation,react中使用react-router来实现路由
+- 注：在0.44版本之前，react-navigation在核心之中维护的，在这之后的版本，单独维护
+
+### 5.1.2 基础组件
+
+#### 安装
+
+- 安装核心功能 npm install --save @react-navigation/native --save
+- 其他必要的依赖：npm install react-native-reanimated(动画增强) react-native-gesture-handler（手势处理,react-navigation
+  7版本不需要了）
+  react-native-screens（屏幕处理组件）
+  react-native-safe-area-context（处理刘海屏的问题） @react-native-community/masked-view --save
+
+#### 链接
+
+- RN 0.60 版本之后，自动链接路由；android无需任何操作
+- ios下需手动链接路由（执行一个命令npx pod-install ios）
+
+#### 添加头部组件
+
+- 在App.js或者App.tsx或者index.js等入口文件最顶部添加
+  import 'react-native-gesture-handler';
+
+#### 添加导航容器
+
+- 在App.js或者App.tsx或者index.js等入口文件，把整个应用包裹在NavigationContainer中（例如：App.js或者index.js中）
+- 示例代码
+  import 'react-native-gesture-handler';
+  import * as React from 'react';
+  import { NavigationContainer } from '@react-navigation/native';
+  export default function App() {
+  return (<NavigationContainer>{/*具体的应用代码*/}</NavigationContainer>)
+  }
+- 注：[React-Navigation中文网](https://react-navigation.nodejs.cn/docs/getting-started)
+- 注：[React Native Express](https://www.reactnative.express/)
+- 注：[expo-跨平台的app构建系统](expo.io)
+
+### 5.1.3 Stack导航
+
+### 5.1.4 BottomTab导航
+
+### 5.1.5 Drawer导航(抽屉导航)
+
+### 5.1.6 MaterialTopTab导航(左右导航)
+
+## 5.2 RN中使用路由
+
+- RN中使用路由，需要使用React-Navigation,react中使用react-router来实现路由
+- 注：在0.44版本之前，react-navigation在核心之中维护的，在这之后的版本，单独维护
 
 
 

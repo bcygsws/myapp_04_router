@@ -1,11 +1,13 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet, Button} from 'react-native';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import type {RootStackParamList} from '../../App'; // 假设你的导航栈类型在此文件中定义
 
-const HomeScreen = () => {
+// 为当前页面添加类型注解
+type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+const Home = ({navigation}: Props) => {
     // flex:1垂直方向的flex布局
     return (
-        <View style={styles.container}>
-            <Text>内容区域</Text>
-        </View>
+        <Button onPress={() => navigation.navigate('About')} title={'跳转到关于页面'}/>
     );
 };
 const styles = StyleSheet.create({
@@ -16,4 +18,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default Home;

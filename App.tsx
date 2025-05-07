@@ -20,8 +20,15 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from './views/home';
-import AboutScreen from './views/about';
+import Home from "./views/home";
+import About from "./views/about";
+
+// RootStackParamList 是你定义整个导航栈页面名称和参数类型的接口
+export type RootStackParamList = {
+    Home: undefined;
+    About: undefined;
+    // 其他页面...
+};
 
 function App(): React.JSX.Element {
     const isDarkMode = useColorScheme() === 'dark';
@@ -64,7 +71,7 @@ function App(): React.JSX.Element {
                                 height: Dimensions.get('window').height - 45
                             }}>
                             <Stack.Navigator initialRouteName={'Home'}>
-                                <Stack.Screen name="Home" component={HomeScreen} options={{
+                                <Stack.Screen name="Home" component={Home} options={{
                                     title: '首页',
                                     headerTitleAlign: 'center',
                                     headerStyle: {
@@ -75,7 +82,17 @@ function App(): React.JSX.Element {
                                         color: 'blue',
                                     },
                                 }}/>
-                                <Stack.Screen name="About" component={AboutScreen} options={{title: '关于'}}/>
+                                <Stack.Screen name="About" component={About} options={{
+                                    title: '关于',
+                                    headerTitleAlign: 'center',
+                                    headerStyle: {
+                                        backgroundColor: 'pink',
+                                    },
+                                    headerTitleStyle: {
+                                        fontWeight: 'bold',
+                                        color: 'blue',
+                                    },
+                                }}/>
                             </Stack.Navigator>
                         </View>
                     </View>
@@ -86,7 +103,7 @@ function App(): React.JSX.Element {
 }
 
 // 创建原生堆栈导航器
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const styles = StyleSheet.create({});
 

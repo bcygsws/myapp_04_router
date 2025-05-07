@@ -278,6 +278,17 @@ To learn more about React Native, take a look at the following resources:
 
 ### 5.1.3 Stack导航
 
+#### 创建原生堆栈导航器
+
+- RN中没有类似浏览器中的history对象
+- 在RN跳转之前，需要将路由声明在Stack中
+- React Navigation 5版本安装：npm install --save @react-navigation/stack
+- React Navigation 7版本安装native-stack：npm install @react-navigation/native-stack
+
+- [参考文档](https://react-navigation.nodejs.cn/docs/hello-react-navigation?config=dynamic)
+
+- 关于
+
 ### 5.1.4 BottomTab导航
 
 ### 5.1.5 Drawer导航(抽屉导航)

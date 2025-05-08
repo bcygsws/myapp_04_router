@@ -278,7 +278,12 @@ To learn more about React Native, take a look at the following resources:
 
 ### 5.1.3 Stack导航
 
-#### 创建原生堆栈导航器
+#### 一、Stack导航器
+
+- 安装的是@react-navigation/stack，虽然使用stack导航是高度可定制的，但它是使用JavaScript实现的，性能远不如
+  原生的stack导航器，所以，在性能要求高的项目中，建议考虑@react-navigation/native-stack
+
+#### 二、创建原生堆栈导航器
 
 - RN中没有类似浏览器中的history对象
 - 在RN跳转之前，需要将路由声明在Stack中
@@ -287,9 +292,21 @@ To learn more about React Native, take a look at the following resources:
 
 - [参考文档](https://react-navigation.nodejs.cn/docs/hello-react-navigation?config=dynamic)
 
-- 关于
-
 ### 5.1.4 BottomTab导航
+
+- 安装依赖包：npm install --save @react-navigation/bottom-tabs
+- 用法类似原生栈导航器
+
+#### BottomTab的图标
+
+- 安装包(包文件和类型声明)
+  npm install --save react-native-vector-icons@10
+  npm install --save @types/react-native-vector-icons
+- 将图标链接到应用（环境问题较多）；[矢量图库官网](https://github.com/oblador/react-native-vector-icons)
+- 将图标链接到应用（环境问题较多）；[旧版本矢量图库官网](https://github.com/oblador/react-native-vector-icons/tree/10.x)
+- 使用：需要到具体的图标库查找使用；例如：Ionicons,Font Awesome(bootstrap用的默认图标库),Ant Design（蚂蚁金服推出）等等
+- 一10.x版本：react-native-vector-icons为例；在旧版本矢量图库中，按照要求配置app/build.gradle文件；
+  apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 
 ### 5.1.5 Drawer导航(抽屉导航)
 

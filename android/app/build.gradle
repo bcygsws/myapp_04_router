@@ -117,3 +117,6 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+// rn矢量图标库需要添加的配置
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")

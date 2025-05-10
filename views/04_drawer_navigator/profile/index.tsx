@@ -1,16 +1,16 @@
-import {View, Text, Button} from 'react-native';
+import {View, Text} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import type {RootStackParamList} from '../../../App.tsx';
+import {Button} from '@react-navigation/elements';
 
 // 为当前页面添加类型注解
-type Props = NativeStackScreenProps<RootStackParamList, 'About'>;
-
-const AboutScreen = ({navigation}: Props) => {
+type Props = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+const ProfileScreen = ({navigation}: Props) => {
     return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <Text>About Screen</Text>
-            <Button title={'to home'} onPress={() => navigation.navigate('Home')}/>
+            <Button onPress={() => navigation.navigate('Home')}>go to Home</Button>
         </View>
     );
 };
-export default AboutScreen;
+export default ProfileScreen;

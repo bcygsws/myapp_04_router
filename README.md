@@ -310,6 +310,24 @@ To learn more about React Native, take a look at the following resources:
 
 ### 5.1.5 Drawer导航(抽屉导航)
 
+#### 使用
+
+- 安装依赖包：npm install --save @react-navigation/drawer
+- const Drawer=createDrawerNavigator();
+- 在使用Drawer导航时，需要使用Drawer.Navigator和Drawer.Screen
+
+#### 配置Drawer Navigator
+
+- Navigator的属性
+    - drawerPosition: 'left' | 'right',菜单显示位置
+    - drawerType: 'front' | 'back'|'slide' | 'permanent'菜单显示位置
+    - drawerPosition: 'left' | 'right',菜单显示位置
+    - drawerStyle: 侧边栏样式
+        - width,backgroundColor,borderRightWidth,borderRightColor,borderRightStyle
+    - drawerContentOptions:选中菜单样式
+        - activeTintColor：选中菜单颜色
+        - itemStyle：所有菜单样式
+
 ### 5.1.6 MaterialTopTab导航(左右导航)
 
 ## 5.2 RN中使用路由

@@ -3,7 +3,7 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import type {RootStackParamList} from '../../../App.tsx';
 import {Button} from '@react-navigation/elements';
 
-// 为当前页面添加类型注解
+// 为当前页面导航对象，添加类型注解
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 const HomeScreen = ({navigation}: Props) => {
     return (

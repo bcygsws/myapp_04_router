@@ -130,7 +130,7 @@ function App(): React.JSX.Element {
                         {/*</View>*/}
 
                         {/*Drawer Navigator导航*/}
-                        <View>
+                        <View style={styles.drawerContainer}>
                             <MyDrawer/>
                         </View>
 
@@ -147,6 +147,11 @@ function App(): React.JSX.Element {
 // 3.创建底部选项卡导航器
 // const Tab = createBottomTabNavigator<RootStackParamList>();
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    drawerContainer: {
+        width: '100%',
+        height: Dimensions.get('window').height - 25,
+    },
+});
 
 export default App;

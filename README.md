@@ -318,15 +318,21 @@ To learn more about React Native, take a look at the following resources:
 
 #### 配置Drawer Navigator
 
-- Navigator的属性
-    - drawerPosition: 'left' | 'right',菜单显示位置
-    - drawerType: 'front' | 'back'|'slide' | 'permanent'菜单显示位置
-    - drawerPosition: 'left' | 'right',菜单显示位置
-    - drawerStyle: 侧边栏样式
-        - width,backgroundColor,borderRightWidth,borderRightColor,borderRightStyle
-    - drawerContentOptions:选中菜单样式
-        - activeTintColor：选中菜单颜色
-        - itemStyle：所有菜单样式
+- 需要在babe.config.js中配置react-native-reanimated的插件，因为抽屉效果本身是一种动画操作；所以，需要增加
+  plugins节点，配置为 plugins: ['react-native-reanimated/plugin']
+
+#### 抽屉和抽屉选项的格式化属性
+
+区别：版本变化的差异；Navigator的属性:7.x版本，下面的属性都放进Navigator的screenOptions属性下面了；5.x版本，drawerStyle单独就是Navigator的属性
+
+- drawerPosition: 'left' | 'right',菜单显示位置
+- drawerType:  'front' | 'back'|'slide' | 'permanent' 来规定抽屉弹出时，以何种方式影响主界面
+- drawerStyle: 侧边栏样式
+- width,backgroundColor,borderRightWidth,borderRightColor,borderRightStyle
+- drawerContentOptions:抽屉整个内容区样式,在drawerStyle中设置，是等效的
+- drawerActiveTintColor：选中菜单项字体颜色
+- drawerInactiveTintColor：未选中时菜单项字体颜色
+- drawerItemStyle：所有菜单样式
 
 ### 5.1.6 MaterialTopTab导航(左右导航)
 

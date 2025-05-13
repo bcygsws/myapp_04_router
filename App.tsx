@@ -28,14 +28,15 @@ import AboutScreen from './views/03_bottom_tab_navigator/about';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MyDrawer from './views/04_drawer_navigator/index';
 import {createDrawerNavigator} from "@react-navigation/drawer";
+import MyMaterialTopTab from "./views/05_material_top_tab";
 
 // RootStackParamList 是你定义整个导航栈页面名称和参数类型的接口
 export type RootStackParamList = {
     Home: undefined;// undefined表示这个页面不需要传递参数
     About: undefined;// 同上
+    Profile: undefined;
     // About: { id: string};// 需要传递一个string类型的id参数
     // 其他页面...
-    Profile: undefined;
 };
 
 function App(): React.JSX.Element {
@@ -129,9 +130,14 @@ function App(): React.JSX.Element {
 
                         {/*</View>*/}
 
-                        {/*Drawer Navigator导航*/}
-                        <View style={styles.drawerContainer}>
-                            <MyDrawer/>
+                        {/*4. Drawer Navigator导航*/}
+                        {/*<View style={styles.drawerContainer}>*/}
+                        {/*    <MyDrawer/>*/}
+                        {/*</View>*/}
+
+                        {/*5.Material Top Tab导航*/}
+                        <View style={styles.materialTopTabContainer}>
+                            <MyMaterialTopTab/>
                         </View>
 
                     </View>
@@ -149,6 +155,10 @@ function App(): React.JSX.Element {
 
 const styles = StyleSheet.create({
     drawerContainer: {
+        width: '100%',
+        height: Dimensions.get('window').height - 25,
+    },
+    materialTopTabContainer: {
         width: '100%',
         height: Dimensions.get('window').height - 25,
     },

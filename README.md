@@ -336,6 +336,47 @@ To learn more about React Native, take a look at the following resources:
 
 ### 5.1.6 MaterialTopTab导航(左右导航)
 
+##### 安装依赖
+
+- npm i @react-navigation/material-top-tabs react-native-pager-view --save
+- 注意：react-native-pager-view依赖包,必须安装；@react-navigation/material-top-tabs依赖该包
+- 注意1：react-native-tab-view依赖包，可以不安装；它是在没有react navigation下可以单独实现滑动切换功能；
+  项目优化时，视具体需求，可以卸载掉该插件
+
+#### 使用
+
+- const Tab= createMaterialTopTabNavigator();
+- 然后使用Tab.Navigator和Tab.Screen
+
+#### 格式化属性
+
+##### navigator属性
+
+- tabBarPosition: 'top' | 'bottom',菜单显示位置,顶部或者底部
+- tabBarOptions: 顶部组件属性的对象
+    - activeTintColor：选中菜单项字体颜色
+    - inactiveTintColor：未选中时菜单项字体颜色
+    - showIcon: true | false,是否显示图标
+    - showLabel: true | false,是否显示文字提示
+    - tabStyle: tab标签样式对象
+    - labelStyle: 顶部组件字体样式
+    - indicatorStyle: 选中菜单项下划线样式
+    - pressColor: 顶部组件按下颜色
+    - pressOpacity: 顶部组件按下透明度
+    - scrollEnabled: true | false,是否滚动
+    - tabBarIndicatorStyle: 选中菜单项下划线样式
+    - tabBarStyle: 顶部组件样式
+
+##### screen属性
+
+- options属性
+    - title: 顶部组件标题
+    - tabBarIcon: 顶部组件图标(需要在navigator中配置showIcon为true,这里的设置才会生效)
+    - tabBarLabel: 顶部组件文字提示;当未定义该属性时，会默认使用title属性的值
+        - 其值为函数，包含两个参数{focused:boolean,color:string}
+        - focused:true,表示当前组件被选中，false表示当前组件未被选中
+        - color:表示当前组件被选中时的颜色
+
 ## 5.2 RN中使用路由
 
 - RN中使用路由，需要使用React-Navigation,react中使用react-router来实现路由

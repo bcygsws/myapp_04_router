@@ -30,7 +30,7 @@ const MyMaterialTopTab = () => {
                                     iconName = focused ? 'walk' : 'walk-outline';
                                 }
                                 return <Ionicons name={iconName!} size={20} color={color}/>;
-                            }
+                            },
                         })}>
             <MTab.Screen name="Home" component={HomeScreen} options={{title: '待付款'}}/>
             <MTab.Screen name="About" component={AboutScreen} options={{title: '待发货'}}/>

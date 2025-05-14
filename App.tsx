@@ -7,7 +7,7 @@
 
 import React from 'react';
 import {
-    Dimensions,
+    Dimensions, Platform,
     ScrollView,
     StatusBar,
     StyleSheet,
@@ -29,14 +29,19 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MyDrawer from './views/04_drawer_navigator/index';
 import {createDrawerNavigator} from "@react-navigation/drawer";
 import MyMaterialTopTab from "./views/05_material_top_tab";
+import RouteNesting from "./views/06_route_nesting";
+import {HEADER_HEIGHT, STATUS_BAR_HEIGHT, WINDOW_HEIGHT} from "./utils/height.tsx";
+import PassParams from "./views/07_params";
 
 // RootStackParamList 是你定义整个导航栈页面名称和参数类型的接口
 export type RootStackParamList = {
     Home: undefined;// undefined表示这个页面不需要传递参数
-    About: undefined;// 同上
+    About: { key: string };// 同上
     Profile: undefined;
     // About: { id: string};// 需要传递一个string类型的id参数
     // 其他页面...
+    First: undefined;
+    Second: undefined;
 };
 
 function App(): React.JSX.Element {
@@ -136,8 +141,18 @@ function App(): React.JSX.Element {
                         {/*</View>*/}
 
                         {/*5.Material Top Tab导航*/}
-                        <View style={styles.materialTopTabContainer}>
-                            <MyMaterialTopTab/>
+                        {/*<View style={styles.materialTopTabContainer}>*/}
+                        {/*    <MyMaterialTopTab/>*/}
+                        {/*</View>*/}
+
+                        {/*6.路由嵌套，不同的导航器嵌套*/}
+                        {/*<View style={styles.routeNestingContainer}>*/}
+                        {/*    <RouteNesting/>*/}
+                        {/*</View>*/}
+
+                        {/*7.路由传参*/}
+                        <View style={styles.paramContainer}>
+                            <PassParams/>
                         </View>
 
                     </View>
@@ -161,6 +176,14 @@ const styles = StyleSheet.create({
     materialTopTabContainer: {
         width: '100%',
         height: Dimensions.get('window').height - 25,
+    },
+    routeNestingContainer: {
+        width: '100%',
+        minHeight: WINDOW_HEIGHT + STATUS_BAR_HEIGHT - HEADER_HEIGHT,
+    },
+    paramContainer: {
+        width: '100%',
+        height: WINDOW_HEIGHT,
     },
 });
 

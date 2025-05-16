@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">myapp_04_router</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">okev3y9Xofpxi5L4tx8S54ry-0LIDlOLkMrYAc</string>
 </resources>

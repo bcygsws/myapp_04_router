@@ -1,18 +1,20 @@
 import {View, Text, StyleSheet} from "react-native";
 import {Button} from "@react-navigation/elements";
-import {NavigationProp, useNavigation} from "@react-navigation/native";
+import {NavigationProp, RouteProp, useNavigation} from "@react-navigation/native";
 import {RootStackParamList} from "../../../App.tsx";
 
 type NavProps = NavigationProp<RootStackParamList>;
-const HomeScreen = () => {
+type HomeScreenProps = RouteProp<RootStackParamList, 'Home'>;
+const HomeScreen = ({route}: { route: HomeScreenProps }) => {
     const navigation = useNavigation<NavProps>();
     return (
         <View style={styles.container}>
             <Text>HomeScreen</Text>
             <Button onPress={() => {
                 navigation.navigate('About',
-                    {key: '123'})
+                    {key: Math.floor(Math.random() * 100)})
             }}>go to About</Button>
+            <Text>{route.params?.post}</Text>
         </View>
     )
 }

@@ -32,11 +32,14 @@ import MyMaterialTopTab from "./views/05_material_top_tab";
 import RouteNesting from "./views/06_route_nesting";
 import {HEADER_HEIGHT, STATUS_BAR_HEIGHT, WINDOW_HEIGHT} from "./utils/height.tsx";
 import PassParams from "./views/07_params";
+import FetchData from "./views/08_fetch_data";
 
 // RootStackParamList 是你定义整个导航栈页面名称和参数类型的接口
 export type RootStackParamList = {
-    Home: undefined;// undefined表示这个页面不需要传递参数
-    About: { key: string };// 同上
+    Home: { post: string };
+    // Home: undefined;// undefined表示这个页面不需要传递参数
+    // About: undefined;
+    About: { key: number };// 同上
     Profile: undefined;
     // About: { id: string};// 需要传递一个string类型的id参数
     // 其他页面...
@@ -151,8 +154,13 @@ function App(): React.JSX.Element {
                         {/*</View>*/}
 
                         {/*7.路由传参*/}
-                        <View style={styles.paramContainer}>
-                            <PassParams/>
+                        {/*<View style={styles.paramContainer}>*/}
+                        {/*    <PassParams/>*/}
+                        {/*</View>*/}
+
+                        {/*8.请求后端数据*/}
+                        <View>
+                            <FetchData/>
                         </View>
 
                     </View>

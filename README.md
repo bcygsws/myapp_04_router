@@ -382,5 +382,49 @@ To learn more about React Native, take a look at the following resources:
 - RN中使用路由，需要使用React-Navigation,react中使用react-router来实现路由
 - 注：在0.44版本之前，react-navigation在核心之中维护的，在这之后的版本，单独维护
 
+# 六、React Native架构
+
+## 6.1 现有架构
+
+### 6.1.1 React Native 旧架构简介
+
+- React Native 旧架构：Native---Bridge---JS(React)
+- 进入Bridge，JSON序列化；离开Bridge, JSON反序列化
+    - Bridge包含：shadow tree 、JSON(Async异步的,不用等待)、Native modules
+    - 注：json（JavaScript Object Notation,JavaScript对象表示法）是一种开放标准的文件格式和数据交换格式（一种数据交互语言）
+    - Bridge的三个特点：序列化(Serialized)、异步（Async）、批处理（batched）
+- React Native 架构
+
+### 6.1.2 React Native旧架构的线程模型
+
+- JS线程：作用-JS代码的执行线程，React代码通过Metro打包后，交由JS引擎来解析
+- Main线程（UI线程或者原生线程）：作用-负责原生渲染（Native UI）和调用原生模块(Native Modules)；偏底层的，了解即可，不必深入
+- Shadow线程(Layout线程)工作过程：
+    - 创建shadow tree来模拟react结构树（类似虚拟DOM）
+    - 再交由Yoga引擎将FlexBox等样式解析成原生平台的布局方式(Android和ios布局中是不支持FlexBox的，所以需要Yoga引擎来转换成对应的布局方式
+    - JS线程--->Shadow线程--->Main线程
+
+### 6.1.3 React Native旧架构的启动过程
+
+- 启动过程
+
+## 6.2 新架构
+
+### 6.2.1 新架构三大改动
+
+- JavaScript层：
+    - 对react 16+版本新特性的支持；
+    - 增强js类型检查：CodeGen
+    - 引入JSI,允许替换不同的js引擎(例如：默认的JS Core,谷歌的V8,移动端Hermes等等)
+- Bridge层：
+    - 拆分成了fabric 和 TurboModules，分别负责原生渲染和调用原生模块
+- Native层：
+    - 精简核心模块，将非核心的模块拆分出去，作为社区模块，独立更新维护
+
+# 七、申请和配置react native安卓打包证书
+
+## [参考文档](https://blog.csdn.net/tianpeng1996/article/details/126704329)
+
+## [打包证书](https://blog.csdn.net/xiediy/article/details/147790082)
 
 

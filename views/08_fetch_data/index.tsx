@@ -18,7 +18,8 @@ const FetchData = () => {
 
         function fetchData(params: IGetWeather) {
             const {location} = params;
-            fetch(`https://n63p3xwu98.re.qweatherapi.com/v7/weather/3d?location=${location}`,
+            const url = `https://n63p3xwu98.re.qweatherapi.com/v7/weather/3d?location=${location}`;
+            fetch(url,
                 {
                     method: 'GET',
                     headers: {
